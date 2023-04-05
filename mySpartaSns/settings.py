@@ -42,7 +42,14 @@ INSTALLED_APPS = [
     'tweet',
     'user',
     'restaurant',
+    # 다운받은 모듈
+    'taggit.apps.TaggitAppConfig',
+    'taggit_templatetags2',
 ]
+
+TAGGIT_CASE_INSENSITIVE = True
+TAGGIT_LIMIT = 50
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

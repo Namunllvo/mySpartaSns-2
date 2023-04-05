@@ -1,6 +1,7 @@
 # tweet/models.py
 from django.db import models
 from user.models import UserModel   # user앱에 있는 모델을 가져와서 사용할건데, UserModel을 가져오겠다
+from taggit.managers import TaggableManager     #TaggableManager=게시물에 태그를 추가해줄 수 있게 만들어주는 매니저
 
 
 # Create your models here.
@@ -10,6 +11,8 @@ class TweetModel(models.Model):
 
     author = models.ForeignKey(UserModel, on_delete=models.CASCADE)     # 다른 데이터베이스에서 내용을 가져오겠다 => ForeignKey
     content = models.CharField(max_length=256)
+    # tag
+    tags = TaggableManager(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
